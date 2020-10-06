@@ -1,3 +1,5 @@
+import 'package:enkahsp/components/theme/color/colors.dart';
+import 'package:enkahsp/components/theme/text/style.dart';
 import 'package:flutter/material.dart';
 
 final TextEditingController cmInput = TextEditingController(text: "");
@@ -29,64 +31,71 @@ class _MassBodyIndexViewState extends State<MassBodyIndexView> {
   get pageWidth => MediaQuery.of(context).size.width;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Mass Body Index"),
-      ),
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Directionality(
-                textDirection: TextDirection.ltr,
-                child: TextField(
-                  controller: cmInput,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                      labelText: "Height",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10))),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: oneColor,
+          title: appBarTitle,
+        ),
+        body: Container(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: TextField(
+                    controller: cmInput,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        labelText: heightText.data,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: pageHeight * 0.03,
-              ),
-              Directionality(
-                textDirection: TextDirection.ltr,
-                child: TextField(
-                  controller: kgInput,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                      labelText: "Weight",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10))),
+                SizedBox(
+                  height: pageHeight * 0.03,
                 ),
-              ),
-              SizedBox(
-                height: pageHeight * 0.03,
-              ),
-              RaisedButton(
-                onPressed: () {
-                  calculation();
-                },
-                child: Text("Result"),
-              ),
-              SizedBox(
-                height: pageHeight * 0.03,
-              ),
-              Directionality(
-                textDirection: TextDirection.ltr,
-                child: TextField(
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                      labelText: "BMI: $result",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10))),
+                Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: TextField(
+                    controller: kgInput,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        labelText: weightText.data,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: pageHeight * 0.03,
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    calculation();
+                  },
+                  child: resultText,
+                  color: oneColor,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide(color: oneColor)),
+                ),
+                SizedBox(
+                  height: pageHeight * 0.03,
+                ),
+                Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        labelText: "BMI: $result",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
