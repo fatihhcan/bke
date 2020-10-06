@@ -1,3 +1,5 @@
+import 'package:curved_drawer/curved_drawer.dart';
+import 'package:enkahsp/components/button/custom_floating_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -10,6 +12,12 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container());
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          child: OptionsButton(),
+        ),
+      ),
+    );
   }
 }

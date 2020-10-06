@@ -33,72 +33,92 @@ class _MassBodyIndexViewState extends State<MassBodyIndexView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: oneColor,
-          title: appBarTitle,
-        ),
+        appBar: buildAppBar(),
         body: Container(
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: TextField(
-                    controller: cmInput,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        labelText: heightText.data,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                  ),
-                ),
+                buildDirectionalityCM(),
                 SizedBox(
                   height: pageHeight * 0.03,
                 ),
-                Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: TextField(
-                    controller: kgInput,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        labelText: weightText.data,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                  ),
-                ),
+                buildDirectionalityKG(),
                 SizedBox(
                   height: pageHeight * 0.03,
                 ),
-                RaisedButton(
-                  onPressed: () {
-                    calculation();
-                  },
-                  child: resultText,
-                  color: oneColor,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(color: oneColor)),
-                ),
+                buildResultButton(),
                 SizedBox(
                   height: pageHeight * 0.03,
                 ),
-                Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        labelText: "BMI: $result",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                  ),
-                ),
+                buildDirectionalityResult(),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  RaisedButton buildResultButton() {
+    return RaisedButton(
+      onPressed: () {
+        calculation();
+      },
+      child: resultText,
+      color: oneColor,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+          side: BorderSide(color: oneColor)),
+    );
+  }
+
+  Directionality buildDirectionalityResult() {
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: TextField(
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+            labelText: "BMI: $result",
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+      ),
+    );
+  }
+
+  Directionality buildDirectionalityKG() {
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: TextField(
+        controller: kgInput,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+            labelText: weightText.data,
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+      ),
+    );
+  }
+
+  Directionality buildDirectionalityCM() {
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: TextField(
+        controller: cmInput,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+            labelText: heightText.data,
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+      ),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      backgroundColor: oneColor,
+      title: appBarTitle,
     );
   }
 }
