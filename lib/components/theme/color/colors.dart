@@ -6,3 +6,4 @@ Color thirdColor = Color(0xFFFA7268);
 Color fourthColor = Color(0xFF03585D);
 Color fifthColor = Color(0xFF3F9AA5);
 Color sixthColor = Color(0xFFFFFFFF);
+Color seventhColor = Color(0xFFFF1654);

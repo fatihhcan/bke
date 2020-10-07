@@ -1,3 +1,4 @@
+import 'package:enkahsp/components/theme/color/colors.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
@@ -8,7 +9,7 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  String assetImage = "";
+  String assetImage = "asset/cupofcoffee.gif";
   void initState() {
     super.initState();
     Future.delayed(
@@ -22,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: seventhColor,
       body: Center(
         child: Image.asset(assetImage),
       ),
