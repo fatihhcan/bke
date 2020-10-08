@@ -1,4 +1,5 @@
 import 'package:enkahsp/components/theme/color/colors.dart';
+import 'package:enkahsp/views/mass_body_index_view.dart';
 import 'package:flutter/material.dart';
 
 class OptionsButton extends StatefulWidget {
@@ -19,7 +20,10 @@ class _OptionsButtonState extends State<OptionsButton> {
       children: [
         FloatingActionButton(
           backgroundColor: secondColor,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MassBodyIndexView()));
+          },
           child: Icon(
             Icons.accessibility_new,
           ),
