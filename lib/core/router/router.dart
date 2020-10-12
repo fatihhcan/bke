@@ -1,4 +1,5 @@
 import 'package:enkahsp/views/home_view.dart';
+import 'package:enkahsp/views/mass_body_index_view.dart';
 import 'package:enkahsp/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class _RouterState extends State<Router> {
       routes: {
         '/': (context) => SplashView(),
         '/home': (context) => HomeView(),
+        '/massbodyindex': (context) => MassBodyIndexView(),
       },
     );
   }

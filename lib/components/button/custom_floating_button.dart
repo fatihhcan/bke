@@ -21,8 +21,7 @@ class _OptionsButtonState extends State<OptionsButton> {
         FloatingActionButton(
           backgroundColor: secondColor,
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MassBodyIndexView()));
+            Navigator.pushNamed(context, '/massbodyindex');
           },
           child: Icon(
             Icons.accessibility_new,
